@@ -12,10 +12,11 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
+  pool: 10
   username: root
-  password:
-  host: localhost
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  host: db
+  port: 3306
 
 development:
   <<: *default
