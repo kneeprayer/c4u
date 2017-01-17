@@ -10,7 +10,7 @@ services:
       MYAPP_DATABASE_USERNAME: app
       MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
       MYAPP_DATABASE_HOST: db
-      MYAPP_SLACK_API_TOKEN: $MYAPP_SLACK_API_TOKEN
+      #MYAPP_SLACK_API_TOKEN: $MYAPP_SLACK_API_TOKEN
     ## See https://docs.docker.com/engine/admin/logging/awslogs/
     ##     https://wdullaer.com/blog/2016/02/28/pass-credentials-to-the-awslogs-docker-logging-driver-on-ubuntu/
     ## AWS User Creation

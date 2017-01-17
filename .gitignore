@@ -18,3 +18,4 @@
 *.swp
 *.env
 /rails/src/public/uploads/
+/.key/

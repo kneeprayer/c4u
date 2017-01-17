@@ -13,10 +13,11 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 10
-  username: root
+  username: <%= ENV['MYAPP_DATABASE_USERNAME'] %>
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host: db
-  port: 3306
+  #host: "db"
+  url: <%= ENV['MYAPP_DATABASE_URL'] %>
+  #port: 3306
 
 development:
   <<: *default
@@ -52,4 +53,4 @@ production:
   <<: *default
   database: c4u_production
   username: c4u
-  password: <%= ENV['C4U_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
