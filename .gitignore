@@ -5,15 +5,15 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/rails/src/.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/rails/src/log/*
+/rails/src/tmp/*
+!/rails/src/log/.keep
+!/rails/src/tmp/.keep
 
 # Ignore Byebug command history file.
 .byebug_history
 *.swp
-/public/uploads/
+/rails/src/public/uploads/
