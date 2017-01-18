@@ -10,6 +10,8 @@ services:
     links:
       - web
       - phpmyadmin
+    depends_on:
+      - web
     networks:
       app_net:
         ipv4_address: 172.16.238.10
@@ -24,11 +26,7 @@ services:
     environment:
       MYAPP_DATABASE_USERNAME: $MYAPP_DATABASE_USERNAME
       MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
-      #MYAPP_DATABASE_URL: "mysql2://db:3306"
-      #MYAPP_SLACK_API_TOKEN: $MYAPP_SLACK_API_TOKEN
-    links:
-      - db
-      - redis
+      MYAPP_DATABASE_HOSTNAME: $MYAPP_DATABASE_HOSTNAME
   web:
     container_name: web
     extends:
