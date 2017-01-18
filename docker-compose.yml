@@ -35,6 +35,8 @@ services:
       - ./rails/src:/myapp
     #ports:
     #  - "3000:3000"
+    depends_on:
+      - db
     links:
       - db
       - redis
