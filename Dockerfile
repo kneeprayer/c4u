@@ -4,7 +4,6 @@ ENV BUILD_PACKAGES="curl-dev ruby-dev build-base bash git" \
     DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev mysql-dev" \
     RUBY_PACKAGES="ruby-json yaml nodejs openssh"
 
-
 RUN apk update && \
     apk upgrade && \
     apk add --update\
