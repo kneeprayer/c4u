@@ -1,5 +1,6 @@
 FROM ruby:2.4.0-alpine
 ENV LANG ja_JP.UTF-8
+ENV RAILS_ENV development
 ENV BUILD_PACKAGES="curl-dev ruby-dev build-base bash git" \
     DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev mysql-dev" \
     RUBY_PACKAGES="ruby-json yaml nodejs openssh"
@@ -15,7 +16,7 @@ RUN apk update && \
 
 RUN mkdir /myapp
 WORKDIR /myapp
-COPY ./rails/src /myapp
+ADD ./rails/src /myapp
 EXPOSE 3000
 RUN gem install nokogiri -- --use-system-libraries && \
     gem install rails --pre && \
