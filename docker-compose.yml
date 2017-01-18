@@ -58,9 +58,12 @@ services:
       MYSQL_USER: $MYAPP_DATABASE_USERNAME
       MYSQL_PASSWORD: $MYAPP_DATABASE_PASSWORD
       MYSQL_ROOT_PASSWORD: $MYAPP_DATABASE_PASSWORD
+      MYSQL_DATABASE: $MYAPP_DATABASE_DEV
+      #MYSQL_DATABASE: $MYAPP_DATABASE_TEST
+      #MYSQL_DATABASE: $MYAPP_DATABASE_PROD
     volumes:
       - db-data:/var/lib/mysql
-      - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
     networks:
       app_net:
         ipv4_address: 172.16.238.40
