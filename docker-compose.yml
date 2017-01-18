@@ -26,6 +26,9 @@ services:
       MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
       #MYAPP_DATABASE_URL: "mysql2://db:3306"
       #MYAPP_SLACK_API_TOKEN: $MYAPP_SLACK_API_TOKEN
+    links:
+      - db
+      - redis
   web:
     container_name: web
     extends:
