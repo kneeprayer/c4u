@@ -22,9 +22,9 @@ services:
       dockerfile: Dockerfile
     container_name: app
     environment:
-      #MYAPP_DATABASE_USERNAME: $MYAPP_DATABASE_USERNAME
-      #MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
-      MYAPP_DATABASE_URL: "mysql2://${MYAPP_DATABASE_USERNAME}:${MYAPP_DATABASE_PASSWORD}@db:3306"
+      MYAPP_DATABASE_USERNAME: $MYAPP_DATABASE_USERNAME
+      MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
+      #MYAPP_DATABASE_URL: "mysql2://db:3306"
       #MYAPP_SLACK_API_TOKEN: $MYAPP_SLACK_API_TOKEN
   web:
     container_name: web
@@ -37,6 +37,7 @@ services:
     #  - "3000:3000"
     depends_on:
       - db
+      - redis
     links:
       - db
       - redis
@@ -53,6 +54,7 @@ services:
     container_name: db
     image: mysql
     environment:
+      
       MYSQL_ROOT_PASSWORD: $MYAPP_DATABASE_PASSWORD
     volumes:
       - db-data:/var/lib/mysql
