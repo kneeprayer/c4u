@@ -1,2 +1,7 @@
 log
 tmp
+/rails/src/log/*
+/rails/src/tmp/*
+.byebug_history
+
+*.md

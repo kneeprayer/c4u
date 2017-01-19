@@ -16,11 +16,11 @@ RUN apk update && \
 
 RUN mkdir /myapp
 WORKDIR /myapp
-ADD ./rails/src /myapp
+ADD ./src /myapp
 EXPOSE 3000
 RUN gem install nokogiri -- --use-system-libraries && \
     gem install rails --pre && \
     bundle install && \
     bundle clean
 
-CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
+#CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
