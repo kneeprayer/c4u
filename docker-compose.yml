@@ -24,7 +24,7 @@ services:
       MYAPP_DATABASE_HOSTNAME: $MYAPP_DATABASE_HOSTNAME
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - ./src:/usr/src/app
+      - ./rails/src:/usr/src/app
     depends_on:
       - db
       - redis

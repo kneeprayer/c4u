@@ -20,11 +20,10 @@ RUN apk update && \
 # Copy the app into the working directory. This assumes your Gemfile
 # is in the root directory and includes your version of Rails that you
 # want to run.
-ONBUILD WORKDIR /usr/src/app
-ONBUILD COPY ./src /usr/src/app
-ONBUILD RUN bundle config build.nokogiri --use-system-libraries && \
+WORKDIR /usr/src/app
+COPY ./src /usr/src/app
+RUN bundle config build.nokogiri --use-system-libraries && \
             bundle install && \
             bundle clean
-
 
 #CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]

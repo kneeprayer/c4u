@@ -8,3 +8,16 @@
 *.env
 /rails/src/*
 /.key/secret.env
+
+# Ignore bundler config.
+.bundle
+
+# Ignore all logfiles and tempfiles.
+/rails/src/log/*
+/rails/src/tmp/*
+!/rails/src/log/.keep
+!/rails/src/tmp/.keep
+
+# Ignore Byebug command history file.
+.byebug_history
+*.swp
