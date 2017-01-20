@@ -21,7 +21,7 @@ RUN apk update && \
 # is in the root directory and includes your version of Rails that you
 # want to run.
 ONBUILD WORKDIR /usr/src/app
-#ONBUILD ADD ./src /usr/src/app
+ONBUILD COPY ./src /usr/src/app
 ONBUILD RUN bundle config build.nokogiri --use-system-libraries && \
             bundle install && \
             bundle clean
