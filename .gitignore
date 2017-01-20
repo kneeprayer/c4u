@@ -4,18 +4,7 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/rails/src/.bundle
-
-# Ignore all logfiles and tempfiles.
-/rails/src/log/*
-/rails/src/tmp/*
-!/rails/src/log/.keep
-!/rails/src/tmp/.keep
-
-# Ignore Byebug command history file.
-.byebug_history
-*.swp
+# Ignore Docker files
 *.env
-/rails/src/public/uploads/
+/rails/src/*
 /.key/secret.env
