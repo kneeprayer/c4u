@@ -27,7 +27,7 @@ services:
       MYAPP_DATABASE_HOSTNAME: $MYAPP_DATABASE_HOSTNAME
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     #volumes:
-    #  - ./rails/src:/myapp
+    #  - myappvolume:/myapp
     #ports:
     #  - "3000:3000"
     depends_on:
@@ -76,6 +76,7 @@ services:
       - app_net
 
 volumes:
+  myappvolume:./rails/src
   db-data:
     driver: local
 
