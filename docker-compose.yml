@@ -1,22 +1,19 @@
 version: '2'
 services:
   nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     container_name: nginx
     image: nginx:1.11.1-alpine
     volumes:
       - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
-    #links:
-    #  - web
-    #  - phpmyadmin
     depends_on:
       - web
     networks:
       - app_net
-    #dns:
-    #  - 8.8.8.8
-    #  - 8.8.4.4
   web:
     build:
       context: ./rails
@@ -26,10 +23,8 @@ services:
       MYAPP_DATABASE_PASSWORD: $MYAPP_DATABASE_PASSWORD
       MYAPP_DATABASE_HOSTNAME: $MYAPP_DATABASE_HOSTNAME
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    #volumes:
-    #  - myappvolume:/myapp
-    #ports:
-    #  - "3000:3000"
+    volumes:
+      - ./rails/src:/usr/src/app
     depends_on:
       - db
       - redis
@@ -76,7 +71,6 @@ services:
       - app_net
 
 volumes:
-  myappvolume:./rails/src
   db-data:
     driver: local
 
